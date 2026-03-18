@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { scrollToSection } from '../utils/scroll';
 
 interface ServiceModalData {
   title: string;
@@ -45,7 +47,13 @@ const Services = () => {
   return (
     <>
       <section id="services" className="mb-[96px] max-w-[1280px] mx-auto px-[16px] md:px-[40px] py-[48px]">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-[48px] gap-[24px]">
+        <motion.div
+          className="flex flex-col md:flex-row md:items-end justify-between mb-[48px] gap-[24px]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="max-w-[672px]">
             <h2 className="text-[30px] leading-[36px] font-bold text-[#f1f5f9] mb-[16px]">Our Premium Services</h2>
             <p className="text-[#c8b993]">Tailored performance programs designed to help you dominate your fitness goals. From heavy lifts to precision nutrition, we have everything you need to succeed.</p>
@@ -53,12 +61,16 @@ const Services = () => {
           <button className="flex items-center gap-[8px] text-[#d49e16] font-bold hover:underline transition-all duration-300">
             View All Services <span className="material-symbols-outlined">arrow_forward</span>
           </button>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[24px]">
           {services.map((service) => (
-            <div
+            <motion.div
               key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: services.indexOf(service) * 0.1 }}
+              viewport={{ once: true }}
               className="group bg-[#3d3623]/30 border border-[#3d3623] rounded-[12px] p-[4px] transition-all duration-300 hover:border-[#d49e16]/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#d49e16]/10"
             >
               <div className="aspect-square w-full rounded-[8px] overflow-hidden mb-[16px] relative">
@@ -82,7 +94,7 @@ const Services = () => {
                   Learn More <span className="material-symbols-outlined text-[14px] leading-[20px]">chevron_right</span>
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -120,7 +132,7 @@ const Services = () => {
               <p className="text-[#c8b993] text-[15px] leading-[24px] mb-[24px]">{activeModal.details}</p>
               <div className="flex gap-[12px]">
                 <button
-                  onClick={() => setActiveModal(null)}
+                  onClick={() => { setActiveModal(null); scrollToSection('membership'); }}
                   className="flex-1 py-[12px] rounded-[8px] bg-[#d49e16] text-[#211d11] font-bold text-[14px] leading-[20px] hover:bg-[#f1c44a] transition-colors duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Get Started

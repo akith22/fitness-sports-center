@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -40,7 +41,13 @@ const Contact = () => {
 
   return (
     <section id="contact" className="w-full bg-[#211d11] border-t border-[#3d3623]">
-      <div className="flex flex-col items-center py-[64px] px-[24px]">
+      <motion.div
+        className="flex flex-col items-center py-[64px] px-[24px]"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        viewport={{ once: true }}
+      >
         {/* Section label */}
         <div className="w-full max-w-[960px] mb-[48px]">
           <span className="inline-block text-[#d49e16] font-semibold text-[13px] uppercase tracking-[0.2em] mb-[8px]">Get In Touch</span>
@@ -62,7 +69,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-[18px] leading-[28px] text-[#f1f5f9]">Visit Us</h3>
-                  <p className="text-[#94a3b8]">123 Iron Street, Muscle District<br/>New York, NY 10001</p>
+                  <p className="text-[#94a3b8]">51/52, Sector 12<br/>Colombo 07, Sri Lanka</p>
                 </div>
               </div>
               <div className="flex items-start gap-[16px]">
@@ -71,7 +78,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-[18px] leading-[28px] text-[#f1f5f9]">Call Us</h3>
-                  <p className="text-[#94a3b8]">+1 (555) 123-4567</p>
+                  <p className="text-[#94a3b8]">+91 9876543210</p>
                 </div>
               </div>
               <div className="flex items-start gap-[16px]">
@@ -145,15 +152,9 @@ const Contact = () => {
             </form>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Map Section */}
-      <div className="w-full px-[24px] pb-[64px] max-w-[1200px] mx-auto">
-        <div className="w-full h-[280px] rounded-[12px] overflow-hidden border border-[#3d3623] relative grayscale contrast-125 dark:invert dark:hue-rotate-180">
-          <img className="w-full h-full object-cover" alt="Map showing gym location in New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjz8N5BQyCs9eRA1JeAnSFyTjOUD0zHW8e27ISGuVN6qu4yu1ft3P1fePOtGRebFCXFzO-M7P4rfGE2s9RfMMeG1CTn4GRNwQlBzEW-9ics1D_xJwOQ44sC_x7VKwzptLF_j9jfgXk-NebZQ5XVrl3yAQ9LxyJtAl4G-l4guLwFOlpa5Y22AlZ26V-QMmpoxJZVMvPmOKviTcK525APvYjaMvCVN9aE_BRN7c5KV0arhZBMJXVLBV83B_IMzEDxIQOOdHsDzGG7W0"/>
-          <div className="absolute inset-[0px] bg-[#d49e16]/5 pointer-events-none"></div>
-        </div>
-      </div>
+
     </section>
   );
 };

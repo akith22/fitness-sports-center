@@ -1,9 +1,16 @@
+import { motion } from 'framer-motion';
 import { scrollToSection } from '../utils/scroll';
 
 const Footer = () => {
   return (
     <footer className="border-t border-[#3d3623] bg-[#211d11] pt-[64px] pb-[32px] mt-auto w-full">
-      <div className="max-w-[1280px] mx-auto px-[16px] md:px-[40px] grid grid-cols-1 md:grid-cols-4 gap-[48px] mb-[48px]">
+      <motion.div
+        className="max-w-[1280px] mx-auto px-[16px] md:px-[40px] grid grid-cols-1 md:grid-cols-4 gap-[48px] mb-[48px]"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="col-span-1 md:col-span-2 flex flex-col gap-[16px]">
           <div className="flex items-center gap-[12px] text-[#d49e16] mb-[24px]">
             <span className="material-symbols-outlined text-[30px] leading-[36px]">fitness_center</span>
@@ -44,9 +51,9 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
       <div className="max-w-[1280px] mx-auto px-[16px] md:px-[40px] pt-[32px] border-t border-[#3d3623]/50 flex flex-col md:flex-row justify-between items-center gap-[16px]">
-        <p className="text-[#c8b993] text-[12px] leading-[16px]">© 2024 Fitness Sports Center. All rights reserved. Built for performance.</p>
+        <p className="text-[#c8b993] text-[12px] leading-[16px]">© 2026 Fitness Sports Center. All rights reserved. Built for performance.</p>
         <div className="flex gap-[24px]">
           <a className="text-[#c8b993] hover:text-[#d49e16] transition-colors" href="#"><span className="material-symbols-outlined">social_leaderboard</span></a>
           <a className="text-[#c8b993] hover:text-[#d49e16] transition-colors" href="#"><span className="material-symbols-outlined">camera_enhance</span></a>

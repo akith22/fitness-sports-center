@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Home',       id: 'home'       },
   { label: 'About',      id: 'about'      },
   { label: 'Services',   id: 'services'   },
+  { label: 'Facilities', id: 'facilities' },
   { label: 'Membership', id: 'membership' },
   { label: 'Trainers',   id: 'trainers'   },
   { label: 'Contact',    id: 'contact'    },
@@ -42,7 +43,7 @@ const Navbar = () => {
         </Link>
 
         {/* ── Desktop Nav ── */}
-        <div className="hidden lg:flex flex-1 justify-end items-center gap-[32px]">
+        <div className="hidden lg:flex flex-1 justify-end items-center gap-[28px]">
           <nav className="flex items-center gap-[28px]">
             {NAV_LINKS.map(({ label, id }) => (
               <button
@@ -64,9 +65,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* ── Mobile Right Controls ── */}
-        <div className="lg:hidden flex items-center gap-[12px]">
-          {/* Mobile hamburger */}
+        {/* ── Mobile Hamburger ── */}
+        <div className="lg:hidden flex items-center">
           <button
             className="flex flex-col justify-center items-center w-[40px] h-[40px] gap-[5px]"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
