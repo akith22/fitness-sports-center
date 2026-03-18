@@ -1,9 +1,11 @@
+import { scrollToSection } from '../utils/scroll';
+
 const Hero = () => {
   return (
     <div id="home" className="w-full pt-[64px]">
       <div className="p-[0px] sm:p-[16px] lg:p-[40px]">
-        <div 
-          className="flex min-h-[600px] flex-col gap-[24px] bg-cover bg-center bg-no-repeat rounded-[0px] sm:rounded-[12px] items-center justify-center p-[24px] text-center shadow-2xl relative overflow-hidden" 
+        <div
+          className="flex min-h-[600px] flex-col gap-[24px] bg-cover bg-center bg-no-repeat rounded-[0px] sm:rounded-[12px] items-center justify-center p-[24px] text-center shadow-2xl relative overflow-hidden"
           style={{ backgroundImage: 'linear-gradient(rgba(33, 29, 17, 0.7) 0%, rgba(33, 29, 17, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBaNBkuqVhbBKT_r7wb9Yw1COvSX5hQaohQhq_o5RXsAz7SQETeF8fMoJ_mR_MykOVBGTM0LG1AfCSER5xmtXm6CBqn3EnSpZLIL5EfRAtk-qfiISI6zDNMuCxc0KXlhXSRIqxBFNUNEIpIxkVbtAXtwYVYJSlI8RBgAcnlRxe276hOoULoqLlL50YPNfRhVMl5f_JevL4qEzVoYsaqoLKBpSCagsmC9khcVJUySZiOzKwItzjFwfo7Y9dnl6620QUQFDuAs3yDMm8")' }}
         >
           <div className="flex flex-col gap-[16px] max-w-[768px] z-10 w-full">
@@ -16,10 +18,18 @@ const Hero = () => {
             </h2>
           </div>
           <div className="flex flex-wrap gap-[16px] justify-center z-10 mt-[16px]">
-            <button className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-[8px] h-[48px] px-[32px] bg-[#d49e16] text-[#211d11] text-[16px] leading-[24px] font-bold tracking-[0.015em] hover:scale-105 transition-transform">
+            {/* Join Now → scrolls to Contact */}
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-[8px] h-[48px] px-[32px] bg-[#d49e16] text-[#211d11] text-[16px] leading-[24px] font-bold tracking-[0.015em] hover:scale-105 transition-transform"
+            >
               Join Now
             </button>
-            <button className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-[8px] h-[48px] px-[32px] border-2 border-[#d49e16]/50 text-[#f1f5f9] text-[16px] leading-[24px] font-bold tracking-[0.015em] hover:bg-[#d49e16]/10 transition-colors">
+            {/* View Programs → scrolls to Services */}
+            <button
+              onClick={() => scrollToSection('services')}
+              className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-[8px] h-[48px] px-[32px] border-2 border-[#d49e16]/50 text-[#f1f5f9] text-[16px] leading-[24px] font-bold tracking-[0.015em] hover:bg-[#d49e16]/10 transition-colors"
+            >
               View Programs
             </button>
           </div>

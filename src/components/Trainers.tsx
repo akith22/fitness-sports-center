@@ -1,3 +1,5 @@
+import { scrollToSection } from '../utils/scroll';
+
 const trainers = [
   {
     name: 'Alex Rivera',
@@ -15,7 +17,7 @@ const trainers = [
     name: 'Marcus Chen',
     role: 'HIIT Specialist',
     desc: 'High-energy coach focused on explosive movements, fat loss, and cardiovascular endurance.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAXsLpjUQyD1FslbNAL6kINP4mugOw4yrtBxGai_Cl-BvhBovnynODUd-c2NYOUCIux7V_kpACGqVart399KUun0KQl_TwKENMHvLA_oxvvjX3eLmmmIhyAVZ4ERsxXfLeCB-wnKuCuF7jsxB3v4xObMviOG6D51bc2KjxWNud7f6CC3EJ-ueEtBVjl_HMH5Y77pvsLt-U4toeIf2ZtYKfIvx1Bv2qC26Y1V46h_pTYg0MCHjz-xzB6Da6qw8RIOecJMvGFnPiY2KIw',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAXsLpjUQyD1FslbNAL6kINP4mugOw4yrtBxGai_Cl-BvhBovnynODUd-c2NYOUCIux7V_kpACGqVart399KUun0KQl_TwKENMHvLA_oxvvjX3eLmmmIhyAVZ4ERsxXfLeCB-wnKuCuF7jsxB3v4xObMviOG6D51bc2KjxWNud7f6CC3EJ-ueEtBVjl_HMH5Y77pvsLt-U4toeIf2ZtYKfIvx1Bv2qC26Y1V46h_TYg0MCHjz-xzB6Da6qw8RIOecJMvGFnPiY2KIw',
   },
   {
     name: 'Elena Rodriguez',
@@ -100,7 +102,7 @@ const Trainers = () => {
                 Book a Session
               </button>
               <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => scrollToSection('contact')}
                 className="rounded-[8px] border-2 border-[#211d11] px-[32px] py-[16px] text-[13px] font-bold uppercase tracking-[0.1em] text-[#211d11] transition-colors hover:bg-[#211d11]/10"
               >
                 Contact Us

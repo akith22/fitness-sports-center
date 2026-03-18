@@ -1,3 +1,5 @@
+import { scrollToSection } from '../utils/scroll';
+
 const Footer = () => {
   return (
     <footer className="border-t border-[#3d3623] bg-[#211d11] pt-[64px] pb-[32px] mt-auto w-full">
@@ -14,28 +16,41 @@ const Footer = () => {
         <div>
           <h4 className="text-[#f1f5f9] font-bold mb-[24px]">Quick Links</h4>
           <ul className="space-y-[16px] text-[#c8b993] text-[14px] leading-[20px]">
-            <li><a className="hover:text-[#d49e16]" href="#">Our Programs</a></li>
-            <li><a className="hover:text-[#d49e16]" href="#">Coaches</a></li>
-            <li><a className="hover:text-[#d49e16]" href="#">Pricing Plans</a></li>
-            <li><a className="hover:text-[#d49e16]" href="#">Gym Gallery</a></li>
+            <li>
+              <button onClick={() => scrollToSection('services')} className="hover:text-[#d49e16] transition-colors text-left">Our Programs</button>
+            </li>
+            <li>
+              {/* Coaches → #trainers */}
+              <button onClick={() => scrollToSection('trainers')} className="hover:text-[#d49e16] transition-colors text-left">Coaches</button>
+            </li>
+            <li>
+              {/* Pricing Plans → #membership */}
+              <button onClick={() => scrollToSection('membership')} className="hover:text-[#d49e16] transition-colors text-left">Pricing Plans</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection('about')} className="hover:text-[#d49e16] transition-colors text-left">Gym Gallery</button>
+            </li>
           </ul>
         </div>
         <div>
           <h4 className="text-[#f1f5f9] font-bold mb-[24px]">Support</h4>
           <ul className="space-y-[16px] text-[#c8b993] text-[14px] leading-[20px]">
-            <li><a className="hover:text-[#d49e16]" href="#">Privacy Policy</a></li>
-            <li><a className="hover:text-[#d49e16]" href="#">Terms of Service</a></li>
-            <li><a className="hover:text-[#d49e16]" href="#">Member Rules</a></li>
-            <li><a className="hover:text-[#d49e16]" href="#">Contact Us</a></li>
+            <li><a className="hover:text-[#d49e16] transition-colors" href="#">Privacy Policy</a></li>
+            <li><a className="hover:text-[#d49e16] transition-colors" href="#">Terms of Service</a></li>
+            <li><a className="hover:text-[#d49e16] transition-colors" href="#">Member Rules</a></li>
+            <li>
+              {/* Contact Us → #contact */}
+              <button onClick={() => scrollToSection('contact')} className="hover:text-[#d49e16] transition-colors text-left">Contact Us</button>
+            </li>
           </ul>
         </div>
       </div>
       <div className="max-w-[1280px] mx-auto px-[16px] md:px-[40px] pt-[32px] border-t border-[#3d3623]/50 flex flex-col md:flex-row justify-between items-center gap-[16px]">
         <p className="text-[#c8b993] text-[12px] leading-[16px]">© 2024 Fitness Sports Center. All rights reserved. Built for performance.</p>
         <div className="flex gap-[24px]">
-          <a className="text-[#c8b993] hover:text-[#d49e16]" href="#"><span className="material-symbols-outlined">social_leaderboard</span></a>
-          <a className="text-[#c8b993] hover:text-[#d49e16]" href="#"><span className="material-symbols-outlined">camera_enhance</span></a>
-          <a className="text-[#c8b993] hover:text-[#d49e16]" href="#"><span className="material-symbols-outlined">smart_display</span></a>
+          <a className="text-[#c8b993] hover:text-[#d49e16] transition-colors" href="#"><span className="material-symbols-outlined">social_leaderboard</span></a>
+          <a className="text-[#c8b993] hover:text-[#d49e16] transition-colors" href="#"><span className="material-symbols-outlined">camera_enhance</span></a>
+          <a className="text-[#c8b993] hover:text-[#d49e16] transition-colors" href="#"><span className="material-symbols-outlined">smart_display</span></a>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { scrollToSection as smoothScroll } from '../utils/scroll';
 
 const NAV_LINKS = [
   { label: 'Home',       id: 'home'       },
@@ -14,15 +15,13 @@ const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const navigate = useNavigate();
 
-  const scrollToSection = (id: string) => {
+  const handleNavClick = (id: string) => {
     setIsMobileOpen(false);
     if (window.location.pathname !== '/') {
       navigate('/');
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }, 120);
+      setTimeout(() => smoothScroll(id), 150);
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      smoothScroll(id);
     }
   };
 
@@ -48,7 +47,7 @@ const Navbar = () => {
             {NAV_LINKS.map(({ label, id }) => (
               <button
                 key={id}
-                onClick={() => scrollToSection(id)}
+                onClick={() => handleNavClick(id)}
                 className="text-[#b8b09a] hover:text-[#d49e16] text-[14px] leading-[20px] font-medium transition-colors duration-300 whitespace-nowrap"
               >
                 {label}
@@ -86,7 +85,7 @@ const Navbar = () => {
           {NAV_LINKS.map(({ label, id }, i) => (
             <button
               key={id}
-              onClick={() => scrollToSection(id)}
+              onClick={() => handleNavClick(id)}
               className={`text-left text-[#b8b09a] hover:text-[#d49e16] text-[15px] font-medium py-[11px] transition-colors duration-200 ${i < NAV_LINKS.length - 1 ? 'border-b border-[#3d3623]/60' : ''}`}
             >
               {label}
